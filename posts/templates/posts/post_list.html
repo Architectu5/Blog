@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мой блог</title>
+</head>
+<body>
+    <h1>Посты блога</h1>
+    {% for post in posts %}
+	<a href="/create/">+ Создать новый пост</a>
+	<h2><a href="/post/{{ post.id }}/">{{ post.title }}</a></h2>
+	<p>{{ post.content }}</p>
+	<hr>
+    {% endfor %}
+</body>
+<html>
