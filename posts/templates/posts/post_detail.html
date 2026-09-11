@@ -4,6 +4,8 @@
 	<title>{{ post.title }}</title>
 </head>
 <body>
+	<a href="/post/{{ post.id }}/edit/">Редактировать</a>
+	<a href="/post/{{ post.id }}/delete/">Удалить</a>
 	<a href="/"← Назад к списку</a>
 	<h1>{{ post.title }}</h1>
 	<p>{{ post.content }}</p>
