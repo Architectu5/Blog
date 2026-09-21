@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post
 from .forms import PostForm
+from rest_framework import viewsets
+from .serializers import PostSerializer
+
 
 # Create your views here.
 
@@ -39,3 +42,7 @@ def post_delete(request, post_id):
 		post.delete()
 		return redirect('post_list')
 	return render(request, 'posts/post_confirm_delete.html', {'post': post})
+
+class PostViewSet(viewsets.ModelViewSet):
+	queryset = Post.objects.all()
+	serializer_class = PostSerializer
