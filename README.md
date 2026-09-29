@@ -10,6 +10,14 @@
 - REST API для постов (`/api/posts/`) на Django REST Framework
 - Запуск одной командой через Docker Compose
 
+## Скриншоты
+
+![Список постов](pics/list_of_posts_orig.png)
+![Создание поста](pics/creating_a_post.png)
+![Страница поста](pics/example_post.png)
+![Редактирование поста](pics/editing_a_post.png)
+![Удаление поста](pics/deleting_a_post.png)
+
 ## Стек
 
 - Python 3.14, Django 6.1
