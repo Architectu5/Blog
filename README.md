@@ -1,3 +1,5 @@
+![CI](https://github.com/Architectu5/Blog/actions/workflows/ci.yml/badge.svg)
+
 # Blog
 
 Блог на Django с REST API. Учебный проект, в котором я прошёл полный цикл бэкенд-разработки: от модели и CRUD до контейнеризации.
@@ -74,7 +76,5 @@ docker-compose.yml  сервисы web и db
 
 ## Планы
 
-- Стили и оформление страниц
 - Авторизация пользователей и авторство постов
-- CI на GitHub Actions
 - Деплой на сервер
