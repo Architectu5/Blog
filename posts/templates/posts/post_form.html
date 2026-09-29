@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Новый пост</title>
-</head>
-<body>
-    <a href="/">← Назад к списку</a>
-    <h1>Создать пост</h1>
+{% extends 'posts/base.html' %}
+
+{% block title %}Пост{% endblock %}
+
+{% block content %}
+    <p><a href="{% url 'post_list' %}">← Назад к списку</a></p>
+
+    <h2>Пост</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Сохранить</button>
     </form>
-</body>
-</html>
+{% endblock %}

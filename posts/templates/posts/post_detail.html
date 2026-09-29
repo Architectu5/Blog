@@ -1,14 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{ post.title }}</title>
-</head>
-<body>
-	<a href="/post/{{ post.id }}/edit/">Редактировать</a>
-	<a href="/post/{{ post.id }}/delete/">Удалить</a>
-	<a href="/"← Назад к списку</a>
-	<h1>{{ post.title }}</h1>
-	<p>{{ post.content }}</p>
-	<p><small>Создано: {{ post.created_at }}</small></p>
-</body>
-</html>
+{% extends 'posts/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <p><a href="{% url 'post_list' %}">← Назад к списку</a></p>
+
+    <article class="post">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content|linebreaksbr }}</p>
+        <p class="muted">Создано: {{ post.created_at|date:"d.m.Y H:i" }}</p>
+    </article>
+
+    <div class="actions">
+        <a href="{% url 'post_update' post.id %}">Редактировать</a>
+        <a href="{% url 'post_delete' post.id %}" class="danger">Удалить</a>
+    </div>
+{% endblock %}

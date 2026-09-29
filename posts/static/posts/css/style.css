@@ -1,0 +1,73 @@
+:root {
+    --bg: #2e3440;
+    --card: #3b4252;
+    --text: #eceff4;
+    --muted: #a3adbf;
+    --accent: #88c0d0;
+    --danger: #bf616a;
+}
+
+body {
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.post {
+    background: var(--card);
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.post h2 {
+    margin-top: 0;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.actions {
+    margin-top: 1rem;
+}
+
+.actions a {
+    margin-right: 1rem;
+}
+
+.danger {
+    color: var(--danger);
+}
+
+button {
+    background: var(--accent);
+    color: var(--bg);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input, textarea {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--muted);
+    border-radius: 6px;
+    padding: 0.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}

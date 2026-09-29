@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Удалить пост</title>
-</head>
-<body>
-    <h1>Удалить "{{ post.title }}"?</h1>
+{% extends 'posts/base.html' %}
+
+{% block title %}Удалить пост{% endblock %}
+
+{% block content %}
+    <h2>Удалить «{{ post.title }}»?</h2>
     <form method="post">
         {% csrf_token %}
         <button type="submit">Да, удалить</button>
-        <a href="/post/{{ post.id }}/">Отмена</a>
+        <a href="{% url 'post_detail' post.id %}">Отмена</a>
     </form>
-</body>
-</html>
+{% endblock %}
