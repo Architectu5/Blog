@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: blog_db
+          POSTGRES_USER: blog_user
+          POSTGRES_PASSWORD: testpass
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U blog_user -d blog_db"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 5
+    
+    env:
+      SECRET_KEY: ci-test-key
+      DEBUG: "True"
+      DB_NAME: blog_db
+      DB_USER: blog_user
+      DB_PASSWORD: testpass
+      DB_HOST: localhost
+      DB_PORT: "5432"
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.14"
+          cache: pip
+      
+      - run: pip install -r requirements.txt
+      
+      - run: python manage.py test
